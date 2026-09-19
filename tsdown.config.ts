@@ -10,4 +10,5 @@ export default defineConfig({
   format: ["esm"],
   exports: true,
   fixedExtension: false,
+  target: ["es2015", "node18"],
 });
