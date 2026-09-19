@@ -1,0 +1,1 @@
+bunx oxfmt --check && bunx oxlint && bunx vitest run
