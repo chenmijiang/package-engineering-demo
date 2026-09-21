@@ -1,0 +1,26 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  oxlint:
+    runs-on: ubuntu-latest
+    steps:
+      # NOTE: For security, it is strongly recommended to pin all
+      # actions to a specific SHA hash instead of using a version
+      # tag like this.
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - run: bun install --frozen-lockfile
+      - run: bun run lint
