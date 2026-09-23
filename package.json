@@ -11,7 +11,8 @@
     "prepare": "husky",
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "format": "oxfmt",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "test": "vitest run"
@@ -28,8 +29,8 @@
     "vitest": "^5.0.1"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,md,mdx}": "oxfmt",
-    "**/*.{js,jsx,ts,tsx,json}": "oxlint"
+    "**/*.{js,jsx,ts,tsx,json,md,mdx}": "oxfmt --no-error-on-unmatched-pattern",
+    "**/*.{js,jsx,ts,tsx,json}": "oxlint --no-error-on-unmatched-pattern"
   },
   "engines": {
     "node": ">=18.0.0"
